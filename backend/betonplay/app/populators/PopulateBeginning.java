@@ -52,7 +52,6 @@ public class PopulateBeginning {
 
         /*Saving the seasons and corresponding leagues*/
         em.persist(season14);
-
         em.persist(season15);
         em.persist(west);
         em.persist(east);
@@ -62,6 +61,10 @@ public class PopulateBeginning {
 /*
 * Creating Team League connections
 * */
+        /*
+        * Create all teams from Betonleague 2015/2016
+        * */
+        String dir = "/2015-16";
         CSVReader reader = new CSVReader();
         List<JsonNode> teamsPerSeason = reader.read(rootdir + historydir + "/team-names-per-seasons.csv");
         for (JsonNode node : teamsPerSeason) {
@@ -69,8 +72,6 @@ public class PopulateBeginning {
             em.persist(team);
         }
 
-
-        String dir = "/2015-16";
 
         List<JsonNode> teamPerLeague = reader.read(rootdir + historydir + dir + "/team-league.csv");
         for (JsonNode node : teamPerLeague) {
@@ -89,8 +90,9 @@ public class PopulateBeginning {
             LeagueTeam leagueTeam = new LeagueTeam(team, league);
             em.persist(leagueTeam);
             league.addLeagueTeam(leagueTeam);
+            em.persist(league);
+            System.out.println(leagueTeam.getTeamName());
         }
-
         em.flush();
 
 /*
@@ -98,15 +100,18 @@ public class PopulateBeginning {
 * */
         List<JsonNode> matches = reader.read(rootdir + historydir + dir + "/matches-league-1.csv");
         for (JsonNode node : matches) {
-            League league = season15.findLeagueByName(em, node.get("League").asText());
-            Round round = league.findRoundByOrderNr(em, node.get("Round").asInt());
+            League league = season15.findLeagueByNameOrCreate(em, node.get("League").asText());
+            Round round = league.findRoundByOrderNrOrCreate(em, node.get("Round").asInt());
             Team homeTeam = league.findTeamByName(node.get("Home").asText());
             Team awayTeam = league.findTeamByName(node.get("Away").asText());
-            int homeGoals = (node.has("Goals Home")) ? node.get("Goals Home").asInt() : -1;
+            int homeGoals = (node.has("Goals HomeInfo")) ? node.get("Goals HomeInfo").asInt() : -1;
             int awayGoals = (node.has("Goals Away")) ? node.get("Goals Away").asInt() : -1;
-            MatchTeam mtHome = MatchTeam.createMatchTeam(em, homeTeam, homeGoals, false);
-            MatchTeam mtAway = MatchTeam.createMatchTeam(em, awayTeam, awayGoals, false);
-            Match match = Match.createMatch(em, mtHome, mtAway, round, (homeGoals > -1));
+            Match match = Match.createMatch(em, null, null, round, (homeGoals > -1));
+            MatchTeam mtHome = MatchTeam.createMatchTeam(em, homeTeam, match,homeGoals, false);
+            MatchTeam mtAway = MatchTeam.createMatchTeam(em, awayTeam, match,awayGoals, false);
+            match.setHome(mtHome);
+            match.setAway(mtAway);
+            em.persist(match);
             System.out.println(match);
         }
 

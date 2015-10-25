@@ -77,6 +77,14 @@ public class Match {
         this.played = played;
     }
 
+    public Round getRound() {
+        return round;
+    }
+
+    public void setRound(Round round) {
+        this.round = round;
+    }
+
     public long getVersion() {
         return version;
     }

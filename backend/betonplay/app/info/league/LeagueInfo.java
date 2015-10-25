@@ -1,11 +1,8 @@
-package helper.league;
+package info.league;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.*;
 
 import java.io.IOException;
@@ -17,7 +14,7 @@ import java.util.Map;
 /**
  * Created by dori on 24.10.15.
  */
-public class LeagueStanding {
+public class LeagueInfo {
     League league;
     Map<Team, Standing> standings;
 
@@ -34,7 +31,7 @@ public class LeagueStanding {
         away.addTeam(match.getHome().getTeam(),match.getAway().getGoals() - match.getHome().getGoals());
 
         if (match.getHome().getGoals() > match.getAway().getGoals()){
-            //Home is a winner
+            //HomeInfo is a winner
             home.increaseWins();
             away.increaseLosses();
             home.addPoints(3); //TODO change it to be a constant
@@ -55,7 +52,7 @@ public class LeagueStanding {
     }
 
 
-    public LeagueStanding(League league) {
+    public LeagueInfo(League league) {
         this.league = league;
         standings = new HashMap<>();
         int i=0;

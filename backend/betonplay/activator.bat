@@ -2,7 +2,7 @@
 @REM
 @REM Environment:
 @REM In order for Activator to work you must have Java available on the classpath
-@REM JAVA_HOME - location of a JDK home dir (optional if java on path)
+@REM JAVA_HOME - location of a JDK homeInfo dir (optional if java on path)
 @REM CFG_OPTS  - JVM options (optional)
 @REM Configuration:
 @REM activatorconfig.txt found in the ACTIVATOR_HOME or ACTIVATOR_HOME/ACTIVATOR_VERSION
@@ -80,7 +80,7 @@ if "%_JAVACMD%"=="" (
   if not "%JAVA_HOME%"=="" (
     if exist "%JAVA_HOME%\bin\java.exe" set "_JAVACMD=%JAVA_HOME%\bin\java.exe"
 
-    rem if there is a java home set we make sure it is the first picked up when invoking 'java'
+    rem if there is a java homeInfo set we make sure it is the first picked up when invoking 'java'
     SET "PATH=%JAVA_HOME%\bin;%PATH%"
   )
 )
@@ -215,8 +215,8 @@ set JAVA_FRIENDLY_HOME=/!JAVA_FRIENDLY_HOME_1: =%%20!
 
 rem Checks if the command contains spaces to know if it should be wrapped in quotes or not
 set NON_SPACED_CMD=%_JAVACMD: =%
-if "%_JAVACMD%"=="%NON_SPACED_CMD%" %_JAVACMD% %DEBUG_OPTS% %MEM_OPTS% %ACTIVATOR_OPTS% %SBT_OPTS% %_JAVA_OPTS% "-Dactivator.home=%JAVA_FRIENDLY_HOME%" -jar "%ACTIVATOR_HOME%\%ACTIVATOR_LAUNCH_JAR%" %CMDS%
-if NOT "%_JAVACMD%"=="%NON_SPACED_CMD%" "%_JAVACMD%" %DEBUG_OPTS% %MEM_OPTS% %ACTIVATOR_OPTS% %SBT_OPTS% %_JAVA_OPTS% "-Dactivator.home=%JAVA_FRIENDLY_HOME%" -jar "%ACTIVATOR_HOME%\%ACTIVATOR_LAUNCH_JAR%" %CMDS%
+if "%_JAVACMD%"=="%NON_SPACED_CMD%" %_JAVACMD% %DEBUG_OPTS% %MEM_OPTS% %ACTIVATOR_OPTS% %SBT_OPTS% %_JAVA_OPTS% "-Dactivator.homeInfo=%JAVA_FRIENDLY_HOME%" -jar "%ACTIVATOR_HOME%\%ACTIVATOR_LAUNCH_JAR%" %CMDS%
+if NOT "%_JAVACMD%"=="%NON_SPACED_CMD%" "%_JAVACMD%" %DEBUG_OPTS% %MEM_OPTS% %ACTIVATOR_OPTS% %SBT_OPTS% %_JAVA_OPTS% "-Dactivator.homeInfo=%JAVA_FRIENDLY_HOME%" -jar "%ACTIVATOR_HOME%\%ACTIVATOR_LAUNCH_JAR%" %CMDS%
 
 if ERRORLEVEL 1 goto error
 goto end

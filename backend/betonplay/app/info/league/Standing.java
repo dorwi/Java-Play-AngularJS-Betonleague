@@ -1,12 +1,7 @@
-package helper.league;
+package info.league;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import models.LeagueTeam;
 import models.Team;
-import scala.concurrent.java8.FuturesConvertersImpl;
 
 import java.util.HashMap;
 import java.util.Map;

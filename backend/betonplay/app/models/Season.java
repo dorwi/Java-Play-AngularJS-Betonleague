@@ -50,7 +50,16 @@ public class Season {
 
     /*Finders*/
 
-    public League findLeagueByName(EntityManager em, String name){
+    public League findLeagueByName(String name) throws Exception {
+        for (League l:leagues){
+            if (l.getName().equals(name)){
+                return l;
+            }
+        }
+        throw new Exception("No league: " + name + " found in season " + this.getName());
+    }
+
+    public League findLeagueByNameOrCreate(EntityManager em, String name){
         for (League l:leagues){
             if (l.getName().equals(name)){
                 return l;

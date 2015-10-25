@@ -54,15 +54,25 @@ public class League {
     }
 
     /*Finders*/
+    public Round findRoundByOrderNr(int orderNr) throws Exception {
+        for (Round r:rounds){
+            if (r.getOrderNumber()==orderNr){
+                return r;
+            }
+        }
+        throw new Exception("There is no Round " + orderNr + " in league " + this.getName());
+    }
+
+
 
     /**
      * If exists returns the round, if not creates a new one with the given order number
      * @param orderNr
      * @return
      */
-    public Round findRoundByOrderNr(EntityManager em,int orderNr){
+    public Round findRoundByOrderNrOrCreate(EntityManager em, int orderNr){
         for (Round r:rounds){
-            if (r.getOrderNumber()==orderNr){
+            if (r.getOrderNumber() == orderNr){
                 return r;
             }
         }
@@ -82,6 +92,8 @@ public class League {
     public void addLeagueTeam(LeagueTeam leagueTeam){
         leagueTeams.add(leagueTeam);
     }
+
+    public void addRound(Round round) {this.rounds.add(round);}
 
     /*Getters and Setters*/
 

@@ -38,12 +38,22 @@ public class Round {
 
     @Transactional
     public static Round createRound(EntityManager em, League league, int orderNumber){
+        System.out.println("Creating round " + orderNumber + " in league " + league.getName());
         Round r = new Round(league,orderNumber);
+        league.addRound(r);
         em.persist(r);
         return r;
     }
 
     /*Getters and Setters*/
+
+    public League getLeague() {
+        return league;
+    }
+
+    public void setLeague(League league) {
+        this.league = league;
+    }
 
     public int getOrderNumber() {
         return orderNumber;
@@ -59,5 +69,11 @@ public class Round {
 
     public void setMatches(List<Match> matches) {
         this.matches = matches;
+    }
+
+    /*Custom Functions*/
+
+    public String getName(){
+        return "Round " + this.orderNumber + ".";
     }
 }

@@ -38,6 +38,10 @@ public class Team {
 
     /*Getters Setters*/
 
+    public long getId() {
+        return id;
+    }
+
     public String getCurrentName() {
         return currentName;
     }
