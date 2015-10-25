@@ -1,5 +1,7 @@
 package models;
 
+import play.db.jpa.Transactional;
+
 import javax.persistence.*;
 
 /**
@@ -42,6 +44,15 @@ public class MatchTeam {
         this.team = team;
         this.goals = goals;
         this.fined = fined;
+    }
+
+    /*Creators*/
+
+    @Transactional
+    public static MatchTeam createMatchTeam(EntityManager em,Team team, int goals, boolean fined){
+        MatchTeam matchTeam = new MatchTeam(team,goals,fined);
+        em.persist(matchTeam);
+        return matchTeam;
     }
 
     /*Getters Setters*/

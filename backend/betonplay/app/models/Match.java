@@ -1,5 +1,7 @@
 package models;
 
+import play.db.jpa.Transactional;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,12 +16,12 @@ public class Match {
     @GeneratedValue
     long id;
 
-    @OneToMany(mappedBy = "match")
-    List<MatchTeam> homes;
-/*
+    @OneToOne
+    MatchTeam home;
+
     @OneToOne
     MatchTeam away;
-*/
+
     @ManyToOne
     Round round;
 
@@ -33,33 +35,39 @@ public class Match {
     public Match() {
     }
 
-    public Match(List<MatchTeam> homes/*, MatchTeam away*/) {
-        this(homes/*,away*/,false);
+    public Match(MatchTeam home, MatchTeam away, Round round, boolean played) {
+        this.home = home;
+        this.away = away;
+        this.round = round;
+        this.played = played;
     }
 
-    public Match(List<MatchTeam> homes/*, MatchTeam away*/, boolean played) {
-        this.homes = homes;
-  //      this.away = away;
-        this.played = played;
+    /*Creators*/
+
+    @Transactional
+    public static Match createMatch(EntityManager em, MatchTeam home, MatchTeam away, Round round, boolean played){
+        Match match = new Match(home,away,round,played);
+        em.persist(match);
+        return match;
     }
 
     /*Getters Setters*/
 
-    public List<MatchTeam> getHomes() {
-        return homes;
+    public MatchTeam getHome() {
+        return home;
     }
 
-    public void setHome(List<MatchTeam> homes) {
-        this.homes = homes;
+    public void setHome(MatchTeam home) {
+        this.home = home;
     }
 
-    /*public MatchTeam getAway() {
+    public MatchTeam getAway() {
         return away;
     }
 
     public void setAway(MatchTeam away) {
         this.away = away;
-    }*/
+    }
 
     public boolean isPlayed() {
         return played;
@@ -71,5 +79,21 @@ public class Match {
 
     public long getVersion() {
         return version;
+    }
+
+
+    @Override
+    public String toString() {
+
+        return "Round " +
+                round.getOrderNumber() +
+                ": " +
+                home.getTeam().getCurrentName() +
+                " - " +
+                away.getTeam().getCurrentName() +
+                " " +
+                home.getGoals() +
+                ":" +
+                away.getGoals();
     }
 }

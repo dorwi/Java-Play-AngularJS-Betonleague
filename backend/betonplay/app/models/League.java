@@ -10,6 +10,8 @@ import java.util.List;
 
 @Entity
 public class League {
+    /*TODO change primary key so that it reflects the fact that for every leage there can be just one
+    * round with the given order number*/
     @Id @GeneratedValue
     long id;
 
@@ -33,12 +35,47 @@ public class League {
 
     public League(){
         leagueTeams = new ArrayList<>();
+        rounds = new ArrayList<>();
     }
 
     public League(Season season, String name) {
         this.name = name;
         this.season = season;
         leagueTeams = new ArrayList<>();
+        rounds = new ArrayList<>();
+    }
+
+    /*Creaters*/
+
+    public static League createLeague(EntityManager em, Season season, String name){
+        League league = new League(season,name);
+        em.persist(league);
+        return league;
+    }
+
+    /*Finders*/
+
+    /**
+     * If exists returns the round, if not creates a new one with the given order number
+     * @param orderNr
+     * @return
+     */
+    public Round findRoundByOrderNr(EntityManager em,int orderNr){
+        for (Round r:rounds){
+            if (r.getOrderNumber()==orderNr){
+                return r;
+            }
+        }
+        return Round.createRound(em,this,orderNr);
+    }
+
+    public Team findTeamByName(String name) throws Exception {
+        for (LeagueTeam lt:leagueTeams){
+            if (lt.getTeamName().equals(name)){
+                return lt.getTeam();
+            }
+        }
+        throw new Exception("Team with name: " + name + " cannot be found in the league: " + this.getName());
     }
 
     /*Adders*/
@@ -64,7 +101,36 @@ public class League {
         this.season = season;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<LeagueTeam> getLeagueTeams() {
+        return leagueTeams;
+    }
+
+    public void setLeagueTeams(List<LeagueTeam> leagueTeams) {
+        this.leagueTeams = leagueTeams;
+    }
+
+    public List<Round> getRounds() {
+        return rounds;
+    }
+
+    public void setRounds(List<Round> rounds) {
+        this.rounds = rounds;
+    }
+
     public long getVersion() {
         return version;
     }
+
+
+    /*Custom functions*/
+
+
 }

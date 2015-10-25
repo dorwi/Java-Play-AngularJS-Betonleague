@@ -48,7 +48,16 @@ public class Season {
     }
 
 
+    /*Finders*/
 
+    public League findLeagueByName(EntityManager em, String name){
+        for (League l:leagues){
+            if (l.getName().equals(name)){
+                return l;
+            }
+        }
+        return League.createLeague(em,this,name);
+    }
 
 
     /*Getters and Setters*/
