@@ -1,1 +1,214 @@
-{"leagueInfo1":[{"name":"Alkohol Junajted","position":1,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Cartel de Medellin","position":2,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Fantazija stogod","position":3,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Hiperventilacija","position":4,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Sestari","position":5,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Sremcica","position":6,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0}],"leagueInfo2":[{"name":"Anchorage","position":1,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Crveni djavoli","position":2,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Kufa","position":3,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Legija stranaca","position":4,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Lekino United","position":5,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0},{"name":"Vozdovac","position":6,"played":0,"wins":0,"draws":0,"losses":0,"goalsFor":0,"goalsAgainst":0,"points":0,"fine":0,"goalDifference":0}],"roundInfo1":{"name":"Round 1.","matches":[{"home":"Sremcica","away":"Sestari","sluzbeno":false,"goalsHome":0,"goalsAway":0},{"home":"Cartel de Medellin","away":"Hiperventilacija","sluzbeno":false,"goalsHome":0,"goalsAway":0},{"home":"Fantazija stogod","away":"Alkohol Junajted","sluzbeno":false,"goalsHome":0,"goalsAway":0}]},"roundInfo2":{"name":"Round 1.","matches":[{"home":"Vozdovac","away":"Anchorage","sluzbeno":false,"goalsHome":0,"goalsAway":0},{"home":"Kufa","away":"Legija stranaca","sluzbeno":false,"goalsHome":0,"goalsAway":0},{"home":"Crveni djavoli","away":"Lekino United","sluzbeno":false,"goalsHome":0,"goalsAway":0}]}}
+{
+  "leagueInfo1": [
+    {
+      "name": "Alkohol Junajted",
+      "position": 1,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Cartel de Medellin",
+      "position": 2,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Fantazija stogod",
+      "position": 3,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Hiperventilacija",
+      "position": 4,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Sestari",
+      "position": 5,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Sremcica",
+      "position": 6,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    }
+  ],
+  "leagueInfo2": [
+    {
+      "name": "Anchorage",
+      "position": 1,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Crveni djavoli",
+      "position": 2,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Kufa",
+      "position": 3,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Legija stranaca",
+      "position": 4,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Lekino United",
+      "position": 5,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    },
+    {
+      "name": "Vozdovac",
+      "position": 6,
+      "played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "points": 0,
+      "fine": 0,
+      "goalDifference": 0
+    }
+  ],
+  "roundInfo1": {
+    "name": "Round 1.",
+    "matches": [
+      {
+        "home": "Sremcica",
+        "away": "Sestari",
+        "sluzbeno": false,
+        "goalsHome": 0,
+        "goalsAway": 0
+      },
+      {
+        "home": "Cartel de Medellin",
+        "away": "Hiperventilacija",
+        "sluzbeno": false,
+        "goalsHome": 0,
+        "goalsAway": 0
+      },
+      {
+        "home": "Fantazija stogod",
+        "away": "Alkohol Junajted",
+        "sluzbeno": false,
+        "goalsHome": 0,
+        "goalsAway": 0
+      }
+    ]
+  },
+  "roundInfo2": {
+    "name": "Round 1.",
+    "matches": [
+      {
+        "home": "Vozdovac",
+        "away": "Anchorage",
+        "sluzbeno": false,
+        "goalsHome": 0,
+        "goalsAway": 0
+      },
+      {
+        "home": "Kufa",
+        "away": "Legija stranaca",
+        "sluzbeno": false,
+        "goalsHome": 0,
+        "goalsAway": 0
+      },
+      {
+        "home": "Crveni djavoli",
+        "away": "Lekino United",
+        "sluzbeno": false,
+        "goalsHome": 0,
+        "goalsAway": 0
+      }
+    ]
+  }
+}
