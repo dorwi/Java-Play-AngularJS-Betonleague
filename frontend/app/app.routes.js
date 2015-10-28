@@ -7,6 +7,11 @@ frontendApp.config(function ($routeProvider) {
         controller: 'HomeCtrl',
         controllerAs: 'home'
       })
+      .when('/fixtures',{
+        templateUrl: 'app/components/fixtures/fixturesView.html',
+        controller: 'FixturesCtrl',
+        controllerAs: 'fixtures'
+      })
       .when('/rules', {
         templateUrl: 'app/components/rules/rulesView.html'
       })

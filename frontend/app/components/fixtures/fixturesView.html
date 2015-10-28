@@ -1,0 +1,13 @@
+<div class="container-fluid" ng-controller="FixturesCtrl">
+    <div  class="col-md-5">
+    	<div ng-repeat="round in fixtures.response.roundsPerLeague1">
+      		<vidround name=round.name matches=round.matches></vidround>
+      	</div>
+    </div>
+
+    <div class="col-md-5 col-md-offset-2">
+    	<div ng-repeat="round in fixtures.response.roundsPerLeague2">
+      		<vidround name=round.name matches=round.matches></vidround>
+      	</div>
+    </div>
+</div>
