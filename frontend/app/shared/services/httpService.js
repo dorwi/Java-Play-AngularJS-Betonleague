@@ -6,7 +6,7 @@ angular.module('frontendApp')
     			if (promise) {
 	      			return promise;
     			} else {
-      				promise = $http.get(url);
+      				promise = $http.get(url, { cache: true});
       				return promise;
     			}
   			};

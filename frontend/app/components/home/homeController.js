@@ -1,6 +1,6 @@
 function HomeCtrl(jsonGetter){
   	var self = this;
-    jsonGetter('http://127.0.0.1:8080/sample_responses/home.json').success(function(data){
+    jsonGetter('http://shielded-castle-7285.herokuapp.com/home?seasonName=Betonleague%202015/2016&leagueName1=West&leagueName2=East&roundNumber1=1&roundNumber2=1').success(function(data){
       self.response = data;
     })
 }

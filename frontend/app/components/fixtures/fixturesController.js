@@ -1,7 +1,7 @@
 angular.module('frontendApp')
 	   .controller('FixturesCtrl', ['jsonGetter', function(jsonGetter){
 	   		var self = this;
-    		jsonGetter('http://127.0.0.1:8080/sample_responses/rounds.json').success(function(data){
+    		jsonGetter('https://shielded-castle-7285.herokuapp.com/rounds?seasonName=Betonleague%202015/2016&leagueName1=West&leagueName2=East').success(function(data){
       			self.response = data;
     		});
 	   }]);

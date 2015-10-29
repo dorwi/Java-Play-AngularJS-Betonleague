@@ -10,7 +10,8 @@ libraryDependencies ++= Seq(
   javaJdbc,
   javaJpa,
   cache,
-  javaWs
+  javaWs,
+  filters
 )
 
 libraryDependencies += "org.hibernate" % "hibernate-entitymanager" % "5.0.2.Final"
@@ -22,8 +23,10 @@ libraryDependencies ++= Seq(
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.6.1",
   "com.fasterxml.jackson.module" % "jackson-module-paranamer" % "2.6.1"
 )
+libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1200-jdbc41"
 
 
 // Play provides two styles of routers, one expects its actions to be injected, the
 // other, legacy style, accesses its actions statically.
 routesGenerator := InjectedRoutesGenerator
+PlayKeys.externalizeResources := false

@@ -16,17 +16,14 @@ import views.html.*;
 import java.io.IOException;
 import java.util.*;
 
+
+
 public class Application extends Controller {
 
     @Transactional
     public Result index() throws Exception {
 
-        List<Team> teams = JPA.em().createQuery("select e from Team e", Team.class).getResultList();
-        List<League> leagues = JPA.em().createQuery("select e from League e", League.class).getResultList();
-        List<LeagueTeam> leagueTeams = JPA.em().createQuery("select e from LeagueTeam e", LeagueTeam.class).getResultList();
-
-        return ok(index.render("Leagues: " + leagues.size() + "\nLeagueTeams: " + leagueTeams.size() +
-                "\nteams: " + teams.size()));
+        return ok("Running");
     }
 
 
@@ -45,3 +42,5 @@ public class Application extends Controller {
         return ok(ret);
     }
 }
+
+
