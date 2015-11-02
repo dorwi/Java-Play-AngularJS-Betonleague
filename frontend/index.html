@@ -26,10 +26,14 @@
   <vidHeader name="Betonleague" year="2015/2016"></vidHeader>
   </div>
 
+<!--
+  <div class="container-fluid">
+    <div ui-view=""></div>
+  </div>
+-->
   <div class="container-fluid">
     <div ng-view=""></div>
   </div>
-
 
 </div>
 
@@ -62,21 +66,20 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,.}) scripts/scripts.js -->
         <script src="app/app.module.js"></script>
         <script src="app/app.routes.js"></script>
-
         <script src="app/shared/services/httpService.js"></script>
         <script src="app/shared/league/leagueDirective.js"></script>
         <script src="app/shared/round/roundDirective.js"></script>
         <script src="app/shared/match/matchDirective.js"></script>
-
+        <script src="app/core/tabs/tabsController.js"></script>
         <script src="app/core/header/headerDirective.js"></script>
         <script src="app/core/footer/footerDirective.js"></script>
-
         <script src="app/components/home/homeController.js"></script>
         <script src="app/components/fixtures/fixturesController.js"></script>
         <!-- endbuild -->
