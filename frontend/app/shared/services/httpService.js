@@ -1,13 +1,14 @@
 angular.module('frontendApp')
 	   .factory('jsonGetter', function($http) {
-  			var promise = null;
-
+  			var promise = {};
 		    return function(url) {
-    			if (promise) {
-	      			return promise;
+          console.log(promise);
+          console.log(url);
+    			if (promise[url]) {
+	      			return promise[url];
     			} else {
-      				promise = $http.get(url, { cache: true});
-      				return promise;
+      				promise[url] = $http.get(url, { cache: true});
+      				return promise[url];
     			}
   			};
 });

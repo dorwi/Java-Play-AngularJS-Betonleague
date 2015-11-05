@@ -3,7 +3,7 @@ angular.module('frontendApp')
 
 function TabsCtrl($window, $scope, $location) {
   $scope.tabs = [
-      { state : 'home', label : 'Home', link: '/' },
+      { state : 'home', label : 'Home', link: '#home' },
       { state : 'fixtures', label : 'Fixtures', link: '#fixtures' },
       { state : 'rules', label : 'Rules', link: '#rules' }
     ]; 
@@ -14,7 +14,7 @@ function TabsCtrl($window, $scope, $location) {
     //$state.transitionTo($state.current, $state.$current.params, { reload: true, inherit: true, notify: true });
     //$state.reload();
     //$state.go($state.current.name, $state.params, { reload: true });
-    $window.location.reload(true)
+    //$window.location.reload(true)
   }
   
   $scope.tabClass = function(tab) {

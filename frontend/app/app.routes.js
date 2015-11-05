@@ -3,21 +3,21 @@
 
 frontendApp.config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'app/components/home/homeView.html',
-        controller: 'HomeCtrl',
-        controllerAs: 'home'
+      .when('/home', {
+        templateUrl: 'app/components/home/homePageView.html'
+        //controller: 'HomeCtrl',
+        //controllerAs: 'home'
       })
       .when('/fixtures',{
-        templateUrl: 'app/components/fixtures/fixturesView.html',
-        controller: 'FixturesCtrl',
-        controllerAs: 'fixtures'
+        templateUrl: 'app/components/fixtures/fixturesPageView.html'
+        //controller: 'FixturesCtrl',
+        //controllerAs: 'fixtures'
       })
       .when('/rules', {
         templateUrl: 'app/components/rules/rulesView.html'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
   });
 
