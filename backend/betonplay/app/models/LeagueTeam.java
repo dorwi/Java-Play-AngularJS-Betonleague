@@ -9,7 +9,9 @@ import java.util.List;
 
 @Entity
 public class LeagueTeam {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "league_team_seq_gen")
+    @SequenceGenerator(name = "league_team_seq_gen", sequenceName = "league_team_id_seq")
     long id;
 
     @ManyToOne

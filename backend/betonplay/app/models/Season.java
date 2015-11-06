@@ -13,7 +13,9 @@ import java.util.List;
 public class Season {
 
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "season_seq_gen")
+    @SequenceGenerator(name = "season_seq_gen", sequenceName = "season_id_seq")
     long id;
 
 

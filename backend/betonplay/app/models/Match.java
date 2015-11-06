@@ -13,7 +13,8 @@ import java.util.List;
 public class Match {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "match_seq_gen")
+    @SequenceGenerator(name = "match_seq_gen", sequenceName = "match_id_seq")
     long id;
 
     @OneToOne

@@ -14,7 +14,7 @@ libraryDependencies ++= Seq(
   filters
 )
 
-libraryDependencies += "org.hibernate" % "hibernate-entitymanager" % "5.0.2.Final"
+libraryDependencies += "org.hibernate" % "hibernate-entitymanager" % "4.3.8.Final"
 libraryDependencies += "joda-time" % "joda-time" % "2.8.2"
 libraryDependencies += "junit" % "junit" % "4.12" % "test"
 libraryDependencies ++= Seq(
@@ -24,6 +24,9 @@ libraryDependencies ++= Seq(
   "com.fasterxml.jackson.module" % "jackson-module-paranamer" % "2.6.1"
 )
 libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1200-jdbc41"
+libraryDependencies += "com.heroku.sdk" % "heroku-jdbc" % "0.1.0"
+libraryDependencies += "org.jadira.usertype" % "usertype.core" % "4.0.0.GA"
+
 
 
 // Play provides two styles of routers, one expects its actions to be injected, the

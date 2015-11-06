@@ -12,7 +12,9 @@ import java.util.List;
 public class League {
     /*TODO change primary key so that it reflects the fact that for every leage there can be just one
     * round with the given order number*/
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "league_seq_gen")
+    @SequenceGenerator(name = "league_seq_gen", sequenceName = "league_id_seq")
     long id;
 
     @ManyToOne

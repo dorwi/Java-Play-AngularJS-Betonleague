@@ -11,7 +11,9 @@ import java.util.List;
 
 @Entity
 public class MatchTeam {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "match_team_seq_gen")
+    @SequenceGenerator(name = "match_team_seq_gen", sequenceName = "match_team_id_seq")
     long id;
 
     @ManyToOne

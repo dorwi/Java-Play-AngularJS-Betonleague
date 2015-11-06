@@ -10,7 +10,9 @@ import java.util.List;
 @Entity
 public class Team {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq_gen")
+    @SequenceGenerator(name = "team_seq_gen", sequenceName = "team_id_seq")
     long id;
 
     @OneToMany(mappedBy = "team")

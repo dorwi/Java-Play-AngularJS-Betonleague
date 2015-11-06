@@ -11,6 +11,9 @@
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="false"></property>
             <property name="hibernate.format_sql" value="true"></property>
+            <property name="hibernate.dbcp.validationQuery" value="select 1"></property>
+            <property name="hibernate.dbcp.testOnBorrow" value="true"></property>
+            <property name="hibernate.dbcp.testOnReturn" value="true"></property>
         </properties>
     </persistence-unit>
 

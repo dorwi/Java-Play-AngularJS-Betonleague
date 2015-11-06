@@ -10,7 +10,9 @@ import java.util.List;
  */
 @Entity
 public class Round {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "round_seq_gen")
+    @SequenceGenerator(name = "round_seq_gen", sequenceName = "round_id_seq")
     long id;
 
 
