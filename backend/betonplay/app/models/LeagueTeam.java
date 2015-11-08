@@ -1,23 +1,29 @@
 package models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by dori on 23.10.15.
  */
 
 @Entity
+@Table(name="league_team")
 public class LeagueTeam {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "league_team_seq_gen")
-    @SequenceGenerator(name = "league_team_seq_gen", sequenceName = "league_team_id_seq")
-    long id;
+    @Column(name="id", updatable = false, columnDefinition = "uuid")
+    @Type(type="pg-uuid")
+    private UUID id;
 
     @ManyToOne
+    @JoinColumn(name="team_fk")
     Team team;
 
     @ManyToOne
+    @JoinColumn(name="league_fk")
     League league;
 
 
@@ -28,11 +34,14 @@ public class LeagueTeam {
     String teamName;
 
 
+/*
     @Version
     long version;
+*/
 
     /*Constructors*/
     public LeagueTeam() {
+        id = UUID.randomUUID();
     }
 
     public LeagueTeam(Team team, League league) {
@@ -40,6 +49,7 @@ public class LeagueTeam {
     }
 
     public LeagueTeam(Team team, League league, String teamName) {
+        this();
         this.team = team;
         this.league = league;
         this.teamName = teamName;

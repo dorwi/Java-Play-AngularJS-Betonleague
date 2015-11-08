@@ -20,9 +20,11 @@ public class RoundInfo {
 
     public RoundInfo(Round round) throws Exception {
         this.name = round.getName();
-        matches = new ArrayList<>();
+        this.matches = new ArrayList<>();
+        System.out.println(round.getName());
+        System.out.println("Matches: " + round.getMatches());
         for (Match match: round.getMatches()){
-            matches.add(new MatchInfo(match));
+            this.matches.add(new MatchInfo(match));
         }
     }
 

@@ -4,21 +4,24 @@ package models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+import org.hibernate.annotations.Type;
 
 /**
  * Created by dori on 23.10.15.
  */
 
 @Entity
+@Table(name="season")
 public class Season {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "season_seq_gen")
-    @SequenceGenerator(name = "season_seq_gen", sequenceName = "season_id_seq")
-    long id;
+    @Column(name="id", updatable = false, columnDefinition = "uuid")
+    @Type(type="pg-uuid")
+    private UUID id;
 
-
+    @Column(name="name")
     String name;
 
 
@@ -28,19 +31,22 @@ public class Season {
 
     /*TODO add Knockout phase*/
 
+/*
     @Version
     long version;
+*/
 
     /*Constructors*/
 
     public Season(){
+        this.id = UUID.randomUUID();
         this.name = "Unknown";
         this.leagues = new ArrayList<>();
     }
 
     public Season(String name){
+        this();
         this.name = name;
-        this.leagues = new ArrayList<>();
     }
 
     /*Adders*/
@@ -73,6 +79,14 @@ public class Season {
 
     /*Getters and Setters*/
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -89,7 +103,4 @@ public class Season {
         this.leagues = leagues;
     }
 
-    public long getVersion() {
-        return version;
-    }
 }

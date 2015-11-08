@@ -1,19 +1,24 @@
 package models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by dori on 23.10.15.
  */
 
 @Entity
+@Table(name="team")
 public class Team {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq_gen")
-    @SequenceGenerator(name = "team_seq_gen", sequenceName = "team_id_seq")
-    long id;
+    @Column(name="id", updatable = false, columnDefinition = "uuid")
+    @Type(type="pg-uuid")
+    private UUID id;
+
 
     @OneToMany(mappedBy = "team")
     List<MatchTeam> matches;
@@ -22,25 +27,30 @@ public class Team {
     List<LeagueTeam> leagueTeams;
 
 
+    @Column(name = "current_name")
     String currentName;
 
+/*
     @Version
     long version;
+*/
 
 
     /*Constructors*/
 
     public Team() {
+        id = UUID.randomUUID();
     }
 
     public Team(String currentName) {
+        this();
         this.currentName = currentName;
     }
 
 
     /*Getters Setters*/
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 

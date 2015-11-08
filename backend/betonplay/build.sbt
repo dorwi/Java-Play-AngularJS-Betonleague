@@ -11,7 +11,8 @@ libraryDependencies ++= Seq(
   javaJpa,
   cache,
   javaWs,
-  filters
+  filters,
+  evolutions
 )
 
 libraryDependencies += "org.hibernate" % "hibernate-entitymanager" % "4.3.8.Final"
@@ -26,7 +27,6 @@ libraryDependencies ++= Seq(
 libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1200-jdbc41"
 libraryDependencies += "com.heroku.sdk" % "heroku-jdbc" % "0.1.0"
 libraryDependencies += "org.jadira.usertype" % "usertype.core" % "4.0.0.GA"
-
 
 
 // Play provides two styles of routers, one expects its actions to be injected, the

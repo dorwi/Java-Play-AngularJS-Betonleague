@@ -6,20 +6,27 @@ import org.joda.time.DateTime;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by dori on 23.10.15.
  */
 @Entity
+@Table(name="player")
 public class Player {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "player_seq_gen")
-    @SequenceGenerator(name = "player_seq_gen", sequenceName = "player_id_seq")
-    long id;
+    @Column(name="id", updatable = false, columnDefinition = "uuid")
+    @Type(type="pg-uuid")
+    private UUID id;
 
+    @Column(name="first_name")
     String firstName;
+
+    @Column(name="last_name")
     String lastName;
+
+    @Column(name="nick_name")
     String nickName;
 /*
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -29,8 +36,10 @@ public class Player {
     @OneToMany(mappedBy = "player")
     List<LeagueTeamPlayer> leagueTeamPlayers;
 
+/*
     @Version
     long version;
+*/
 
 
 
@@ -38,6 +47,7 @@ public class Player {
     /*Constructors*/
 
     public Player() {
+        id = UUID.randomUUID();
         leagueTeamPlayers = new ArrayList<>();
     }
 }

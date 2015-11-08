@@ -45,6 +45,9 @@ public class PopulateBeginning {
 */
         Season season14 = new Season("Betonleague 2014/2015");
         Season season15 = new Season("Betonleague 2015/2016");
+
+        System.out.println(season14.getId());
+        System.out.println(season15.getId());
         League west = new League(season15, "West");
         League east = new League(season15, "East");
         season15.addLeague(west);

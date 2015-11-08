@@ -1,23 +1,28 @@
 package models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by dori on 23.10.15.
  */
 
 @Entity
+@Table(name="league")
 public class League {
-    /*TODO change primary key so that it reflects the fact that for every leage there can be just one
+    /*TODO change primary key so that it reflects the fact that for every league there can be just one
     * round with the given order number*/
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "league_seq_gen")
-    @SequenceGenerator(name = "league_seq_gen", sequenceName = "league_id_seq")
-    long id;
+    @Column(name="id", updatable = false, columnDefinition = "uuid")
+    @Type(type="pg-uuid")
+    private UUID id;
 
     @ManyToOne
+    @JoinColumn(name="season_fk")
     Season season;
 
     @OneToMany(mappedBy = "league")
@@ -27,24 +32,26 @@ public class League {
     @OneToMany(mappedBy = "league")
     List<Round> rounds;
 
-
+    @Column(name="name")
     String name;
 
+/*
     @Version
     long version;
+*/
 
     /*Constructors*/
 
     public League(){
+        id = UUID.randomUUID();
         leagueTeams = new ArrayList<>();
         rounds = new ArrayList<>();
     }
 
     public League(Season season, String name) {
+        this();
         this.name = name;
         this.season = season;
-        leagueTeams = new ArrayList<>();
-        rounds = new ArrayList<>();
     }
 
     /*Creaters*/
@@ -99,12 +106,8 @@ public class League {
 
     /*Getters and Setters*/
 
-    public long getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Season getSeason() {
@@ -137,10 +140,6 @@ public class League {
 
     public void setRounds(List<Round> rounds) {
         this.rounds = rounds;
-    }
-
-    public long getVersion() {
-        return version;
     }
 
 

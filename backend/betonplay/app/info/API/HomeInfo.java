@@ -41,6 +41,7 @@ public class HomeInfo {
         this.leagueInfo2 = new LeagueInfo(league2);
         this.roundInfo1 = new RoundInfo(round1);
         this.roundInfo2 = new RoundInfo(round2);
+        System.out.println("Here");
     }
 
     /*Getters and Setters*/
