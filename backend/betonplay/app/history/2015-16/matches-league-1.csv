@@ -1,59 +1,59 @@
 League,Round,Home,Away,Goals Home,Goals Away
 West,1,Sremcica,Sestari
-West,1,Cartel de Medellin,Hiperventilacija
+West,1,Belgrade Saint Germain,Hiperventilacija
 West,1,Fantazija stogod,Alkohol Junajted
 East,1,Vozdovac,Anchorage
 East,1,Kufa,Legija stranaca
 East,1,Crveni djavoli,Lekino United
 West,2,Hiperventilacija,Sremcica
 West,2,Alkohol Junajted,Sestari
-West,2,Fantazija stogod,Cartel de Medellin
+West,2,Fantazija stogod,Belgrade Saint Germain
 East,2,Legija stranaca,Vozdovac
 East,2,Lekino United,Anchorage
 East,2,Crveni djavoli,Kufa
 West,3,Sremcica,Alkohol Junajted
 West,3,Hiperventilacija,Fantazija stogod
-West,3,Sestari,Cartel de Medellin
+West,3,Sestari,Belgrade Saint Germain
 East,3,Vozdovac,Lekino United
 East,3,Legija stranaca,Crveni djavoli
 East,3,Anchorage,Kufa
 West,4,Fantazija stogod,Sremcica
-West,4,Cartel de Medellin,Alkohol Junajted
+West,4,Belgrade Saint Germain,Alkohol Junajted
 West,4,Sestari,Hiperventilacija
 East,4,Crveni djavoli,Vozdovac
 East,4,Kufa,Lekino United
 East,4,Anchorage,Legija stranaca
-West,5,Sremcica,Cartel de Medellin
+West,5,Sremcica,Belgrade Saint Germain
 West,5,Fantazija stogod,Sestari
 West,5,Alkohol Junajted,Hiperventilacija
 East,5,Vozdovac,Kufa
 East,5,Crveni djavoli,Anchorage
 East,5,Lekino United,Legija stranaca
 West,6,Sestari,Sremcica
-West,6,Hiperventilacija,Cartel de Medellin
+West,6,Hiperventilacija,Belgrade Saint Germain
 West,6,Alkohol Junajted,Fantazija stogod
 East,6,Anchorage,Vozdovac
 East,6,Legija stranaca,Kufa
 East,6,Lekino United,Crveni djavoli
 West,7,Sremcica,Hiperventilacija
 West,7,Sestari,Alkohol Junajted
-West,7,Cartel de Medellin,Fantazija stogod
+West,7,Belgrade Saint Germain,Fantazija stogod
 East,7,Vozdovac,Legija stranaca
 East,7,Anchorage,Lekino United
 East,7,Kufa,Crveni djavoli
 West,8,Alkohol Junajted,Sremcica
 West,8,Fantazija stogod,Hiperventilacija
-West,8,Cartel de Medellin,Sestari
+West,8,Belgrade Saint Germain,Sestari
 East,8,Lekino United,Vozdovac
 East,8,Crveni djavoli,Legija stranaca
 East,8,Kufa,Anchorage
 West,9,Sremcica,Fantazija stogod
-West,9,Alkohol Junajted,Cartel de Medellin
+West,9,Alkohol Junajted,Belgrade Saint Germain
 West,9,Hiperventilacija,Sestari
 East,9,Vozdovac,Crveni djavoli
 East,9,Lekino United,Kufa
 East,9,Legija stranaca,Anchorage
-West,10,Cartel de Medellin,Sremcica
+West,10,Belgrade Saint Germain,Sremcica
 West,10,Sestari,Fantazija stogod
 West,10,Hiperventilacija,Alkohol Junajted
 East,10,Kufa,Vozdovac
