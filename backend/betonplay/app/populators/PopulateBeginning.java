@@ -107,7 +107,7 @@ public class PopulateBeginning {
             Round round = league.findRoundByOrderNrOrCreate(em, node.get("Round").asInt());
             Team homeTeam = league.findTeamByName(node.get("Home").asText());
             Team awayTeam = league.findTeamByName(node.get("Away").asText());
-            int homeGoals = (node.has("Goals HomeInfo")) ? node.get("Goals HomeInfo").asInt() : -1;
+            int homeGoals = (node.has("Goals Home")) ? node.get("Goals Home").asInt() : -1;
             int awayGoals = (node.has("Goals Away")) ? node.get("Goals Away").asInt() : -1;
             Match match = Match.createMatch(em, null, null, round, (homeGoals > -1));
             MatchTeam mtHome = MatchTeam.createMatchTeam(em, homeTeam, match,homeGoals, false);
