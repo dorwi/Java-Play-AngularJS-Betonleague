@@ -4,7 +4,7 @@
 <table class="table table-bordered table-condensed">
   <tr ng-repeat="match in matches">
     <td class="text-left">{{match.home}}</td>
-    <th class="text-center">-- : --</th>
+    <th class="text-center">{{match.goalsHome}} : {{match.goalsAway}}</th>
     <td class="text-right">{{match.away}}</td>
   </tr>
 </table>
