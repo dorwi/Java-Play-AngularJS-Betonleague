@@ -5,6 +5,7 @@ import models.Match;
 import models.Team;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
+import play.mvc.Controller;
 import play.mvc.Result;
 
 import javax.persistence.EntityManager;
@@ -16,7 +17,7 @@ import static play.mvc.Results.ok;
 /**
  * Created by dori on 29.11.15.
  */
-public class Matches {
+public class Matches extends Controller {
 
     @Transactional
     public Result updateMatch(){
