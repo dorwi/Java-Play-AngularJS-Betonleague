@@ -15,11 +15,11 @@
         return service;
 
         function GetById(id) {
-            return $http.get('localhost:9000/admin/' + id).then(handleSuccess, handleError('Error getting user by id'));
+            return $http.get('http://localhost:9000/admin/' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
         function GetByUsername(username) {
-            return $http.get('localhost:9000/admin/' + username).then(handleSuccess, handleError('Error getting user by username'));
+            return $http.get('http://localhost:9000/admin/' + username).then(handleSuccess, handleError('Error getting user by username'));
         }
 
 

@@ -17,7 +17,7 @@
  
         function Login(username, password, callback) {
  
-            $http.post('localhost:9000/admin/authenticate', { username: username, password: password })
+            $http.post('http://localhost:9000/admin/authenticate', { username: username, password: password })
                .success(function (response) {
                    callback(response);
                });
