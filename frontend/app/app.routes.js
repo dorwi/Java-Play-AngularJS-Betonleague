@@ -16,37 +16,30 @@ frontendApp.config(function ($routeProvider) {
       .when('/rules', {
         templateUrl: 'app/components/rules/rulesView.html'
       })
+      .when('/login', {
+                controller: 'LoginController',
+                templateUrl: 'app/components/login/login.view.html',
+                controllerAs: 'vm'
+            })
       .otherwise({
         redirectTo: '/home'
       });
   });
 
-/*
-frontendApp.config(function($stateProvider, $urlRouterProvider){
-      
-      // For any unmatched url, send to /
-      $urlRouterProvider.otherwise("/")
-      
-      $stateProvider
-        .state('home', {
-            url: '/',
-            templateUrl: 'app/components/home/homeView.html',
-            controller: 'HomeCtrl',
-            controllerAs: 'home',
-            cache: false
-
-        })
-          .state('fixtures', {
-              url: "/fixtures",
-              templateUrl: 'app/components/fixtures/fixturesView.html',
-              controller: 'FixturesCtrl',
-              controllerAs: 'fixtures',
-              cache: false
-          })
-          
-        .state('rules', {
-            url: "/rules",
-            templateUrl: 'app/components/rules/rulesView.html'
-        })
-    })
-    */
+  run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
+    function run($rootScope, $location, $cookieStore, $http) {
+        // keep user logged in after page refresh
+        $rootScope.globals = $cookieStore.get('globals') || {};
+        if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+        }
+ 
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to login page if not logged in and trying to access a restricted page
+            var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+            var loggedIn = $rootScope.globals.currentUser;
+            if (restrictedPage && !loggedIn) {
+                $location.path('/login');
+            }
+        });
+    }
