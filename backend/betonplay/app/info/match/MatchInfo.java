@@ -2,10 +2,13 @@ package info.match;
 
 import models.Match;
 
+import java.util.UUID;
+
 /**
  * Created by dori on 25.10.15.
  */
 public class MatchInfo {
+    UUID matchId;
     String home;
     String away;
     boolean sluzbeno;
@@ -13,6 +16,7 @@ public class MatchInfo {
     int goalsAway;
 
     public MatchInfo(Match match) throws Exception {
+        this.matchId = match.getId();
         this.home = match.getHome().getTeamName();
         this.away = match.getAway().getTeamName();
         this.goalsHome = (match.isPlayed()) ? match.getHome().getGoals() : 0;
@@ -22,6 +26,14 @@ public class MatchInfo {
     
 
     /*Getters and Setters*/
+
+    public UUID getMatchId() {
+        return matchId;
+    }
+
+    public void setMatchId(UUID matchId) {
+        this.matchId = matchId;
+    }
 
     public String getHome() {
         return home;

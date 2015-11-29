@@ -96,7 +96,9 @@ public class Match {
         this.round = round;
     }
 
-
+    public UUID getId() {
+        return id;
+    }
 
     @Override
     public String toString() {
