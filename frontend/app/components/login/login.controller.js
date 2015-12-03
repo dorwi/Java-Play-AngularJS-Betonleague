@@ -5,8 +5,10 @@
         .module('frontendApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
-    function LoginController($location, AuthenticationService, FlashService) {
+    LoginController.$inject = ['$location', '$rootScope','AuthenticationService', 'FlashService'];
+    function LoginController($location, $rootScope, AuthenticationService, FlashService) {
+        $rootScope.faszkalap = false    
+
         var vm = this;
 
         vm.login = login;
@@ -23,6 +25,7 @@
                 console.log(response)
                 console.log(response.success)
                 if (response.success) {
+                    $rootScope.faszkalap = true;
                     AuthenticationService.SetCredentials(vm.username, vm.password);
                     $location.path('/home');
                 } else {

@@ -100,6 +100,13 @@ public class Match {
         return id;
     }
 
+
+    public void save(EntityManager em){
+        away.save(em);
+        home.save(em);
+        em.persist(this);
+    }
+
     @Override
     public String toString() {
 

@@ -109,6 +109,11 @@ public class MatchTeam {
     }
 
 
+    public void save(EntityManager em){
+        em.persist(this);
+    }
+
+
     /*Custom*/
     public String getTeamName() throws Exception {
         League league = getMatch().getRound().getLeague();

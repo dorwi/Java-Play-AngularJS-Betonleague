@@ -34,7 +34,9 @@ public class Matches extends Controller {
         System.out.println(match);
         match.getHome().setGoals(json.get("homeGoals").asInt());
         match.getAway().setGoals(json.get("awayGoals").asInt());
-        em.persist(match);
+        match.setPlayed(true);
+
+        match.save(em);
         return ok(match.toString());
     }
 
