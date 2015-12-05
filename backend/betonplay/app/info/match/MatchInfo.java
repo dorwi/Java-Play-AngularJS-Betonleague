@@ -12,8 +12,14 @@ public class MatchInfo {
     String home;
     String away;
     boolean sluzbeno;
+    boolean played;
     int goalsHome;
     int goalsAway;
+
+
+    public MatchInfo(){
+        
+    }
 
     public MatchInfo(Match match) throws Exception {
         this.matchId = match.getId();
@@ -22,6 +28,7 @@ public class MatchInfo {
         this.goalsHome = (match.isPlayed()) ? match.getHome().getGoals() : 0;
         this.goalsAway = (match.isPlayed()) ? match.getAway().getGoals() : 0;
         this.sluzbeno = (match.getHome().isFined() || match.getAway().isFined());
+        this.played = match.isPlayed();
     }
     
 
@@ -57,6 +64,14 @@ public class MatchInfo {
 
     public void setSluzbeno(boolean sluzbeno) {
         this.sluzbeno = sluzbeno;
+    }
+
+    public boolean isPlayed() {
+        return played;
+    }
+
+    public void setPlayed(boolean played) {
+        this.played = played;
     }
 
     public int getGoalsHome() {

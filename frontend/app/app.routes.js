@@ -16,6 +16,10 @@ frontendApp.config(function ($routeProvider) {
       .when('/rules', {
         templateUrl: 'app/components/rules/rulesView.html'
       })
+      .when('/logout', {
+        controller: 'LogoutController',
+        templateUrl: 'app/components/login/login.view.html'
+      })
       .when('/login', {
                 controller: 'LoginController',
                 templateUrl: 'app/components/login/login.view.html',

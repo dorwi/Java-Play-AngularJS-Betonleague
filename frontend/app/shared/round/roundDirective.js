@@ -2,6 +2,7 @@ angular.module('frontendApp')
 	.directive('vidround',function(){
 		return {
 			restrict: 'E',
+			transclude: true,
 			scope: {
         		name: '=name',
         		matches: '=matches'

@@ -1,0 +1,19 @@
+<form name="MatchForm" novalidate>
+  <td class="text-left team-field">{{matchctrl.match.home}}</td>
+  
+  <!-- when not admin -->
+  <td ng-show="!matchctrl.isAdmin()" class="goals-field">{{matchctrl.match.goalsHome}}</td>
+  <td ng-show="!matchctrl.isAdmin()" class="goals-field">{{matchctrl.match.goalsAway}}</td>
+  <!-- when admin -->
+  <td ng-show="matchctrl.isAdmin()"><input class="goalsInput" ng-model="matchctrl.match.goalsHome"></td>
+  <td ng-show="matchctrl.isAdmin()"><input class="goalsInput" ng-model="matchctrl.match.goalsAway"></td>
+
+  <td class="text-right team-field">{{matchctrl.match.away}}</td>
+
+  <!-- when admin -->
+  <td ng-show="matchctrl.isAdmin()"><button type="button" ng-click="matchctrl.submit()">Save</button></td>
+
+</form>
+
+
+<!-- <td><button type="button" ng-click="submit(goalsHome)">Save</button></td> -->

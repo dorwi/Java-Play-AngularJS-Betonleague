@@ -5,6 +5,7 @@ var frontendApp = angular.module('frontendApp', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ngStorage',
     'angular-loading-bar'
     //'ui.router'
   ])

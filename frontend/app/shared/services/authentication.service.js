@@ -5,19 +5,29 @@
         .module('frontendApp')
         .factory('AuthenticationService', AuthenticationService);
  
-    AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'AdminService'];
-    function AuthenticationService($http, $cookieStore, $rootScope, $timeout, AdminService) {
+    AuthenticationService.$inject = ['$http', '$localStorage', 'AdminService'];
+    function AuthenticationService($http, $localStorage, AdminService) {
         var service = {};
  
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
- 
+        service.isAdmin = isAdmin;
+
         return service;
+
+        function isAdmin(){
+            try {
+                return $localStorage.globals.currentUser.username == 'faszkalap';
+            }
+            catch(err) {
+                return false;
+            }
+        }
  
         function Login(username, password, callback) {
  
-            $http.post('http://localhost:9000/admin/authenticate', { username: username, password: password })
+            $http.post('https://shielded-castle-7285.herokuapp.com/admin/authenticate', { username: username, password: password })
                .success(function (response) {
                    callback(response);
                });
@@ -26,7 +36,7 @@
         function SetCredentials(username, password) {
             var authdata = Base64.encode(username + ':' + password);
  
-            $rootScope.globals = {
+            $localStorage.globals = {
                 currentUser: {
                     username: username,
                     authdata: authdata
@@ -34,12 +44,10 @@
             };
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-            $cookieStore.put('globals', $rootScope.globals);
         }
  
         function ClearCredentials() {
-            $rootScope.globals = {};
-            $cookieStore.remove('globals');
+            $localStorage.globals = {};
             $http.defaults.headers.common.Authorization = 'Basic';
         }
     }

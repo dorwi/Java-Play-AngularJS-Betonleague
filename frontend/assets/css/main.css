@@ -1,0 +1,13 @@
+.goalsInput {
+	text-align: center;
+	max-width: 30px;
+}
+
+.goals-field {
+	text-align: center;
+	width: 5%;
+}
+
+.team-field {
+	width: 45%;
+}
