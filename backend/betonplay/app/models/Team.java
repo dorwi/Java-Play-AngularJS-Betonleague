@@ -61,4 +61,8 @@ public class Team {
     public void setCurrentName(String currentName) {
         this.currentName = currentName;
     }
+
+    public List<MatchTeam> getMatches() {
+        return matches;
+    }
 }

@@ -5,6 +5,7 @@ function TabsCtrl($window, $scope, $location) {
   $scope.tabs = [
       { state : 'home', label : 'Home', link: '#home' },
       { state : 'fixtures', label : 'Fixtures', link: '#fixtures' },
+      { state : 'teams', label : 'Teams', link: '#teams' },
       { state : 'rules', label : 'Rules', link: '#rules' }
     ]; 
     

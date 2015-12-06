@@ -1,0 +1,24 @@
+<a ng-if="!teamctrl.full" href="#/teams" class="list-group-item" ng-click="teamctrl.toggle()">{{teamctrl.team.currentName}}</a>
+
+<div ng-if="teamctrl.full"  ng-show="teamctrl.isShow()">
+  <div class="page-header">
+    <h1 >{{teamctrl.team.currentName}}</h1>
+    <p >Captain: {{teamctrl.team.firstname}} {{teamctrl.team.lastname}}</p>
+  </div>
+
+  <div class="col-md-6">
+  	<div>
+      <h4><span class="label label-default">Previous matches</span></h4>
+    </div>
+  	<table class="teamview-table">
+  	  <tr ng-repeat="match in teamctrl.team.matches">
+  	  	<td class="team-home">{{match.home}}</td>
+  	  	<td style="text-align: center;">{{match.goalsHome}}</td>
+  	  	<td style="text-align: center;">:</td>
+  	  	<td style="text-align: center;">{{match.goalsAway}}</td>
+  	  	<td class="team-away">{{match.away}}</td>
+  	  </tr>
+	</table>
+  </div>
+</div>	
+

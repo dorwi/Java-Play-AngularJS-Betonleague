@@ -76,6 +76,10 @@ public class MatchTeam {
 
     /*Getters Setters*/
 
+    public UUID getId() {
+        return id;
+    }
+
     public Team getTeam() {
         return team;
     }
