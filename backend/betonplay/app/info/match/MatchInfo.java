@@ -18,7 +18,7 @@ public class MatchInfo {
 
 
     public MatchInfo(){
-        
+
     }
 
     public MatchInfo(Match match) throws Exception {

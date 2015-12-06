@@ -5,9 +5,14 @@
 
 .goals-field {
 	text-align: center;
-	width: 5%;
+	width: 7%;
 }
 
 .team-field {
-	width: 45%;
+	width: 43%;
+}
+
+.small-field {
+	text-align: center;
+	width: 7%;
 }

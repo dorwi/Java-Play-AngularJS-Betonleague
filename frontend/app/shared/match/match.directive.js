@@ -9,6 +9,16 @@ angular.module('frontendApp')
     	      return AuthenticationService.isAdmin();
         	}
 
+          self.notAdminAndPlayed = function() {
+            //console.log(AuthenticationService.isAdmin());
+            return !self.isAdmin() && self.match.played;
+          }
+
+          self.notAdminAndNotPlayed = function() {
+            //console.log(AuthenticationService.isAdmin());
+            return ((!self.isAdmin()) && (!self.match.played));
+          }
+
 	        self.submit = function() {
 	           $http.post('http://localhost:9000/updateMatch', self.match)
                     .success(function (response) {
