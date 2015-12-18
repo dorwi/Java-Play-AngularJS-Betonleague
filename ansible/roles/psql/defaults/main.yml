@@ -1,0 +1,10 @@
+---
+psql_version: "9.3"
+psql_encoding: "UTF-8"
+psql_locale: "en_US.UTF-8"
+psql_template: "template0"
+
+psql_user_name: "beton_usr"
+psql_user_password: "beton_pass"
+psql_user_database: "betonleague"
+pgsql_user_privilege: "SUPERUSER"

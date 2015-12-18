@@ -1,0 +1,31 @@
+---
+- hosts: betonleague_hosts
+  roles:
+    - java
+    - psql
+  tasks:
+
+
+#    - name: Package required for installing java
+#      apt: pkg=python-software-properties state=installed update_cache=true
+#
+    - name: Install Zip
+      sudo: True
+      apt: pkg=zip state=installed
+#
+#    - name: Add repository for java 8
+#      apt_repository: repo='ppa:webupd8team/java' update_cache=true
+
+#    - name: Add webupd8 key
+#      sudo: True
+#      apt_key: url=http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0xC2518248EEA14886 state=present
+#
+#    - name: Install java 8
+#      apt: pkg=oracle-java8-installer state=installed update_cache=true
+
+
+
+    - name: Copy the compiled backend and extract it
+      unarchive: src=../backend/betonplay/target/universal/betonplay-1.0-SNAPSHOT.zip dest=~
+#      copy: src=../backend/betonplay/target/universal/betonplay-1.0-SNAPSHOT.zip dest=~
+#    - name: Unzip copyed file

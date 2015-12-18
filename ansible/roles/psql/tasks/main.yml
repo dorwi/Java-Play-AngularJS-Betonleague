@@ -1,0 +1,49 @@
+---
+  - name: Ensure the locale is generated
+    locale_gen:
+      name: "{{ psql_locale }}"
+      state: present
+
+#  - name: Add key for the repository of PSQL
+#    sudo: true
+#    apt_key:
+#      url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+#    register: added_key_psql
+
+#  - name: Add repository of PSQL
+#    sudo: true
+#    apt_repository:
+#      repo: "deb http://apt.postgresql.org/pub/repos/apt/ Ubuntu.12.04-pgdg main"
+#    when: added_key_psql.changed
+
+  - name: Install PSQL
+    sudo: true
+    apt:
+      name: "postgresql-{{psql_version}}"
+      state: installed
+      update_cache: yes
+
+  - name: Update pg_hba.conf
+    template:
+      src: pg_hba.conf
+      dest: /etc/postgresql/{{ psql_version }}/main/pg_hba.conf
+      owner: postgres
+      group: postgres
+    notify: restart postgresql
+
+  - name: Create user
+    sudo_user: postgres
+    postgresql_user:
+      name: "{{ psql_user_name }}"
+      password: "{{ psql_user_password }}"
+      role_attr_flags: "{{ pgsql_user_privilege }}"
+
+  - name: Create database
+    sudo_user: postgres
+    postgresql_db:
+      name: "{{ psql_user_database }}"
+      owner: "{{ psql_user_name }}"
+      encoding: "{{ psql_encoding }}"
+      lc_collate: "{{ psql_locale }}"
+      lc_ctype: "{{ psql_locale }}"
+      template: "{{ psql_template }}"
