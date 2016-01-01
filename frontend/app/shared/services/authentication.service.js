@@ -26,8 +26,9 @@
         }
  
         function Login(username, password, callback) {
- 
-            $http.post('https://shielded-castle-7285.herokuapp.com/admin/authenticate', { username: username, password: password })
+            //url = 'https://shielded-castle-7285.herokuapp.com/admin/authenticate'
+            url = 'http://46.101.169.15:9000/admin/authenticate'
+            $http.post(url, { username: username, password: password })
                .success(function (response) {
                    callback(response);
                });

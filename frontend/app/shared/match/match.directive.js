@@ -3,7 +3,8 @@ angular.module('frontendApp')
 
 		function MatchController(AuthenticationService, FlashService, $http) {
         	var self = this;
-          self.url = 'https://shielded-castle-7285.herokuapp.com/updateMatch';
+          self.url = 'http://46.101.169.15:9000/updateMatch'
+          //self.url = 'https://shielded-castle-7285.herokuapp.com/updateMatch';
           //self.url = 'http://localhost:9000/updateMatch';
 
 	        self.isAdmin = function() {

@@ -14,12 +14,14 @@
 
         return service;
 
+        //url = 'http://localhost:9000/admin/'
+        url = 'http://46.101.169.15:9000/admin'
         function GetById(id) {
-            return $http.get('http://localhost:9000/admin/' + id).then(handleSuccess, handleError('Error getting user by id'));
+            return $http.get(url + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
         function GetByUsername(username) {
-            return $http.get('http://localhost:9000/admin/' + username).then(handleSuccess, handleError('Error getting user by username'));
+            return $http.get(url + username).then(handleSuccess, handleError('Error getting user by username'));
         }
 
 
