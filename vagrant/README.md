@@ -1,0 +1,1 @@
+Run the VM with `vagrant up`
