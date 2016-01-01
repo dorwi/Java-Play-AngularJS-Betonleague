@@ -1,0 +1,24 @@
+---
+  - name: Install Zip
+    sudo: True
+    apt: pkg=zip state=installed
+
+
+  - name: Copy the compiled backend and extract it
+    unarchive: src="../backend/betonplay/target/universal/{{ betonplay_version }}.zip" dest=~
+
+  - name: Kill old processes to free ports and memory and so we can redeploy
+    action: command killall java -q
+    ignore_errors: yes
+    tags:
+      - deploy
+  
+  - name: Remove RUNNING_PID
+    file: path="/root/{{betonplay_version}}/RUNNING_PID" state=absent
+    tags:
+      - deploy
+
+  - name: Launch project
+    action: shell nohup ~/betonplay-1.0-SNAPSHOT/bin/betonplay
+    tags:
+      - deploy

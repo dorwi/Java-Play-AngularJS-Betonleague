@@ -1,5 +1,5 @@
 ---
-psql_version: "9.3"
+psql_version: "9.4"
 psql_encoding: "UTF-8"
 psql_locale: "en_US.UTF-8"
 psql_template: "template0"

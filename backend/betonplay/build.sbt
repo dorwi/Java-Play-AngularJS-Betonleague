@@ -33,3 +33,16 @@ libraryDependencies += "org.jadira.usertype" % "usertype.core" % "4.0.0.GA"
 // other, legacy style, accesses its actions statically.
 routesGenerator := InjectedRoutesGenerator
 PlayKeys.externalizeResources := false
+
+// Package the history files as well
+import com.typesafe.sbt.SbtNativePackager.Universal
+
+mappings in Universal += {
+  file("app/history/team-names-per-seasons.csv") -> "bin/app/history/team-names-per-seasons.csv"  
+}
+mappings in Universal += {
+  file("app/history/2015-16/matches-league-1.csv") -> "bin/app/history/2015-16/matches-league-1.csv"  
+}
+mappings in Universal += {
+  file("app/history/2015-16/team-league.csv") -> "bin/app/history/2015-16/team-league.csv"  
+}

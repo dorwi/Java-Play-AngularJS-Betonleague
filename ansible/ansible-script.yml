@@ -3,18 +3,12 @@
   roles:
     - java
     - psql
+    - deploy-play
   tasks:
 
 
 #    - name: Package required for installing java
 #      apt: pkg=python-software-properties state=installed update_cache=true
 #
-    - name: Install Zip
-      sudo: True
-      apt: pkg=zip state=installed
-
-
-    - name: Copy the compiled backend and extract it
-      unarchive: src=../backend/betonplay/target/universal/betonplay-1.0-SNAPSHOT.zip dest=~
 #      copy: src=../backend/betonplay/target/universal/betonplay-1.0-SNAPSHOT.zip dest=~
 #    - name: Unzip copyed file

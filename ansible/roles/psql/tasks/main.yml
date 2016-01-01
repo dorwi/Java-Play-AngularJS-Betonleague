@@ -4,17 +4,26 @@
       name: "{{ psql_locale }}"
       state: present
 
-#  - name: Add key for the repository of PSQL
-#    sudo: true
-#    apt_key:
-#      url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
-#    register: added_key_psql
+  - name: Add key for the repository of PSQL
+    sudo: true
+    apt_key:
+      url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    register: added_key_psql
 
-#  - name: Add repository of PSQL
-#    sudo: true
-#    apt_repository:
-#      repo: "deb http://apt.postgresql.org/pub/repos/apt/ Ubuntu.12.04-pgdg main"
-#    when: added_key_psql.changed
+  - name: Add repository of PSQL
+    sudo: true
+    apt_repository:
+      repo: "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
+    when: added_key_psql.changed
+
+  - name: Install prerequisites
+    sudo: true
+    apt: 
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - libpq-dev
+      - python-psycopg2
 
   - name: Install PSQL
     sudo: true
