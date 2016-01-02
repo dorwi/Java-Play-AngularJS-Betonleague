@@ -25,7 +25,7 @@ public class Season {
     String name;
 
 
-    @OneToMany(mappedBy = "season", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "season", cascade = CascadeType.ALL)
     List<League> leagues;
 
 

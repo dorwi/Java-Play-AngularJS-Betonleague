@@ -21,15 +21,15 @@ public class League {
     @Type(type="pg-uuid")
     private UUID id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="season_fk")
     Season season;
 
-    @OneToMany(mappedBy = "league")
+    @OneToMany(mappedBy = "league", cascade = CascadeType.ALL, orphanRemoval = true)
     List<LeagueTeam> leagueTeams;
 
 
-    @OneToMany(mappedBy = "league")
+    @OneToMany(mappedBy = "league", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Round> rounds;
 
     @Column(name="name")

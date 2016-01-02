@@ -33,7 +33,7 @@ public class Player {
     DateTime birthday;
 */
 
-    @OneToMany(mappedBy = "player")
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     List<LeagueTeamPlayer> leagueTeamPlayers;
 
 /*

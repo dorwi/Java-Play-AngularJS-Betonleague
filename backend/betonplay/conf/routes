@@ -15,6 +15,7 @@ GET     /populate                   populators.PopulateBeginning.runFromBeginnin
 GET     /home                       API.Home.getPage(seasonName: String, leagueName1: String, leagueName2: String, roundNumber1: Int, roundNumber2: Int)
 GET     /rounds                     API.Rounds.getPage(seasonName: String, leagueName1: String, leagueName2: String)
 GET     /teams                      API.Teams.getPage()
+GET     /getpopulator               API.Populator.getMatchesCSV(seasonName: String)
 
 POST    /updateMatch                API.Matches.updateMatch()
 

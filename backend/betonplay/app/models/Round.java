@@ -23,7 +23,7 @@ public class Round {
     @JoinColumn(name="league_fk")
     League league;
 
-    @OneToMany(mappedBy = "round")
+    @OneToMany(mappedBy = "round", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Match> matches;
 
     @Column(name = "order_number")
