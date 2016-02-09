@@ -37,6 +37,7 @@ blackbox_edit_end FILE_NAME
 ```
 
 All commands:
+
 | Name: | Description: |
 | --- | --- |
 | `blackbox_edit` | Decrypt, run $EDITOR, re-encrypt a file |
