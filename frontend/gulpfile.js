@@ -22,7 +22,8 @@ var config = {
 		],
 		mainJs: './src/main.js',
 		images: [
-			'./src/images/**/*.png'
+			'./src/images/**/*.png',
+			'./src/favicon.ico'
 		],
 		dist: './dist'
 	}

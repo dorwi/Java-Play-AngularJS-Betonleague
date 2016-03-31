@@ -1,16 +1,11 @@
-window.$ = window.jQuery = require('jquery');
+"use strict";
+
 
 var React = require('react');
-var Header = require('./components/common/header');
+var routes = require('./routes');
 
-var App = React.createClass({
-	render: function() {
-		return (
-			<div>
-				<Header />
-			</div>
-		);
-	}
-});
+var Router = require('react-router').Router;
+var hashHistory = require('react-router').hashHistory;
+var reactDOM = require('react-dom');
 
-React.render(<App />, document.getElementById('app'));
+reactDOM.render((<Router history={hashHistory}>{routes}</Router>), document.getElementById('app'));
