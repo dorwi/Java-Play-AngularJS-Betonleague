@@ -1,5 +1,16 @@
 window.$ = window.jQuery = require('jquery');
 
-var App = console.log('Hello!!!');
+var React = require('react');
+var Header = require('./components/common/header');
 
-module.exports = App;
+var App = React.createClass({
+	render: function() {
+		return (
+			<div>
+				<Header />
+			</div>
+		);
+	}
+});
+
+React.render(<App />, document.getElementById('app'));
